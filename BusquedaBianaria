@@ -1,0 +1,51 @@
+#include<stdio.h>	
+#include<stdlib.h>
+	
+int main (){
+//ordenar el vector por selección
+	int vect[5] = {8,3,9,2,6};
+	
+	int aux;
+	
+	for (int i = 0; i < 5; i ++){
+		for (int j = 0; j < 5; j ++){
+			if (vect[j] > vect[i]){
+				aux = vect[i];
+				vect[i] = vect[j];
+				vect[j] = aux;
+			}
+		
+		}
+	}
+	printf("VECTOR ORDENADO \n");
+	for (int i = 0; i < 5; i ++){
+		printf("[%i]", vect[i]);
+	}
+	
+//BUSQUEDA BINARIA
+	int dato;
+	printf("\nINGRESA NUMERO A BUSCAR: \n");
+	scanf("%i", &dato);
+	int inf=0, sup=5, mitad;
+	bool band = false;
+	
+	while(inf<=sup){
+		mitad=(inf+sup)/2;
+		
+		if(vect[mitad]==dato){
+			band= true;
+			printf("NUMERO ENCONTRADO EN LA POSICION %i", mitad);
+			break;
+		}
+		
+		if(vect[mitad]<dato){
+				inf=mitad;
+				mitad=(inf+sup)/2;
+				}
+			if(vect[mitad]>dato){
+				sup=mitad;
+				mitad=(inf+sup)/2;
+			}
+		}
+
+}
