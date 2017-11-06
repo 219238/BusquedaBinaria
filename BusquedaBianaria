@@ -7,15 +7,17 @@ int main (){
 	
 	int aux;
 	
-	for (int i = 0; i < 5; i ++){
-		for (int j = 0; j < 5; j ++){
-			if (vect[j] > vect[i]){
-				aux = vect[i];
-				vect[i] = vect[j];
-				vect[j] = aux;
+	for (int i = 0; i < 5 - 1; i ++){
+		min = i;
+		for (int j = i + 1; j < 5; j ++){
+			if (vect[j] < vect[min]){
+				min = j;
 			}
-		
 		}
+			aux = vect[i];
+			vect[i] = vect[min];
+			vect[min] = aux;
+		
 	}
 	printf("VECTOR ORDENADO \n");
 	for (int i = 0; i < 5; i ++){
